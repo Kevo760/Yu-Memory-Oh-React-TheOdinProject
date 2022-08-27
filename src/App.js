@@ -21,64 +21,90 @@ function App() {
     {
       name: 'ALEXIS',
       id: 1,
-      image: alexis,
-      selected: false
+      selected: true,
+      image: alexis
     },
     {
       name: 'JADEN',
       id: 2,
-      image: jaden,
-      selected: false
+      selected: true,
+      image: jaden
     },
     {
       name: 'KAIBA',
       id: 3,
-      image: kaiba,
-      selected: false
+      selected: true,
+      image: kaiba
     },
     {
       name: 'MAI',
       id: 4,
-      image: mai,
-      selected: false
+      selected: true,
+      image: mai
     },
     {
       name: 'MARIK',
       id: 5,
-      image: marik,
-      selected: false
+      selected: true,
+      image: marik
     },
     {
       name: 'JACK',
       id: 6,
-      image: jack,
-      selected: false
+      selected: false,
+      image: jack
     },
     {
       name: 'JOEY',
       id: 7,
-      image: joey,
-      selected: false
+      selected: false,
+      image: joey
     },
     {
       name: 'YAMI',
       id: 8,
-      image: yami,
-      selected: false
+      selected: false,
+      image: yami
     },
     {
       name: 'YUSEI',
       id: 9,
-      image: yusei,
-      selected: false
+      selected: false,
+      image: yusei
     },
     {
       name: 'ZANE',
       id: 10,
-      image: zane,
-      selected: false
+      selected: false,
+      image: zane
     },
   ])
+
+  const [currentPoints, setCurrentPoints] = useState(0)
+
+  const resetCurrentPoints = () => {
+    setCurrentPoints(0)
+  }
+
+  const incrementCurrentPoints = () => {
+    setCurrentPoints(prevPoints => prevPoints + 1)
+  }
+
+  const [highestPoints, setHighestPoints] = useState(0)
+
+  const increasePoints = () => {
+    // If current points is greater or equal to 10 reset points
+    if(currentPoints >= 10) {
+      resetCurrentPoints()
+      incrementCurrentPoints()
+    } else {
+      increasePoints()
+    }
+
+    if(currentPoints >= highestPoints) {
+      setHighestPoints(currentPoints)
+    }
+  }
 
   // Shuffles the objects in the array
   const shuffle = () => {
@@ -89,10 +115,36 @@ function App() {
     setCharacters([...characters])
   }
 
+
+  const selectCard = (id) => {
+    // loop over the characters to find the character id
+    let updatedCharacters = characters.map(character => {
+        if(character.id === id && character.selected === false) {
+          return {...character, select: true}
+        } else if(character.id === id && character.selected === true) {
+          return resetAllSelectedToFalse()
+        }
+      })
+  }
+
+  const resetAllSelectedToFalse = () => {
+    // Go through all characters
+    const updatedCharacters = characters.map(character => {
+      // If character selected is true set character selected to false
+      if(character.selected === true) {
+        return {...character, selected: false}
+      }
+      return character
+    })
+    // sets updated characters
+    setCharacters(updatedCharacters)
+  }
+
   return (
     <div className="App">
       <Header />
       <Scorebar />
+      <button onClick={() => console.log(characters)}>Click Me</button>
       <CardContainer characters={characters} shuffle={shuffle}/>
     </div>
   );
