@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Yu-Memory-Oh-React-TheOdinProject/static/css/main.f2956ed0.css",
+    "main.js": "/Yu-Memory-Oh-React-TheOdinProject/static/js/main.b55eb315.js",
+    "static/js/787.962c5afa.chunk.js": "/Yu-Memory-Oh-React-TheOdinProject/static/js/787.962c5afa.chunk.js",
+    "static/media/zane.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/zane.cd05e0b43962ca4672f1.png",
+    "static/media/mai.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/mai.1c3e9ad6892b32598517.png",
+    "static/media/jack.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/jack.38750d1d81932335f254.png",
+    "static/media/marik.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/marik.6dc3a3aebbc0304274fa.png",
+    "static/media/yusei.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/yusei.4cedd72861166c074525.png",
+    "static/media/joey.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/joey.35f6bf8ff2c90d4600ff.png",
+    "static/media/yami.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/yami.909b09d87fe2f9bb9720.png",
+    "static/media/kaiba.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/kaiba.bb2cd42903c7ff9ebe81.png",
+    "static/media/alexis.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/alexis.8512fde0c08a137325dc.png",
+    "static/media/jaden.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/jaden.d3f4fa13ff92da369d39.png",
+    "static/media/bg-mobile-800.png": "/Yu-Memory-Oh-React-TheOdinProject/static/media/bg-mobile-800.d9d5bb07b69cf45ec557.png",
+    "static/media/bg.jpg": "/Yu-Memory-Oh-React-TheOdinProject/static/media/bg.763f24db3da35fc369b1.jpg",
+    "static/media/yugioh-text.ttf": "/Yu-Memory-Oh-React-TheOdinProject/static/media/yugioh-text.796bf97a2c85d775ae5c.ttf",
+    "static/media/yugioh-title.ttf": "/Yu-Memory-Oh-React-TheOdinProject/static/media/yugioh-title.9956c71fc8fcccf6bc61.ttf",
+    "index.html": "/Yu-Memory-Oh-React-TheOdinProject/index.html",
+    "main.f2956ed0.css.map": "/Yu-Memory-Oh-React-TheOdinProject/static/css/main.f2956ed0.css.map",
+    "main.b55eb315.js.map": "/Yu-Memory-Oh-React-TheOdinProject/static/js/main.b55eb315.js.map",
+    "787.962c5afa.chunk.js.map": "/Yu-Memory-Oh-React-TheOdinProject/static/js/787.962c5afa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2956ed0.css",
+    "static/js/main.b55eb315.js"
+  ]
+}
