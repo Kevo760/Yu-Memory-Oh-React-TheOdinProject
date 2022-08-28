@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Gamecard from './components/Gamecard';
 import Header from './components/Header';
@@ -21,31 +21,31 @@ function App() {
     {
       name: 'ALEXIS',
       id: 1,
-      selected: true,
+      selected: false,
       image: alexis
     },
     {
       name: 'JADEN',
       id: 2,
-      selected: true,
+      selected: false,
       image: jaden
     },
     {
       name: 'KAIBA',
       id: 3,
-      selected: true,
+      selected: false,
       image: kaiba
     },
     {
       name: 'MAI',
       id: 4,
-      selected: true,
+      selected: false,
       image: mai
     },
     {
       name: 'MARIK',
       id: 5,
-      selected: true,
+      selected: false,
       image: marik
     },
     {
@@ -80,29 +80,25 @@ function App() {
     },
   ])
 
-  const [currentPoints, setCurrentPoints] = useState(0)
+  const [currentScore, setCurrentScore] = useState(0)
 
-  const resetCurrentPoints = () => {
-    setCurrentPoints(0)
+  const resetCurrentScore = () => {
+    setCurrentScore(0)
   }
 
-  const incrementCurrentPoints = () => {
-    setCurrentPoints(prevPoints => prevPoints + 1)
+  const incrementCurrentScore = () => {
+    setCurrentScore(prevScore => prevScore + 1)
   }
 
-  const [highestPoints, setHighestPoints] = useState(0)
+  const [highestScore, setHighestScore] = useState(0)
 
-  const increasePoints = () => {
-    // If current points is greater or equal to 10 reset points
-    if(currentPoints >= 10) {
-      resetCurrentPoints()
-      incrementCurrentPoints()
+  const scoreHandler = () => {
+    // If score is greater than 9 reset current score and reset selected to false else increment score
+    if(currentScore > 9) {
+      resetCurrentScore()
+      resetAllSelectedToFalse()
     } else {
-      increasePoints()
-    }
-
-    if(currentPoints >= highestPoints) {
-      setHighestPoints(currentPoints)
+      incrementCurrentScore()
     }
   }
 
@@ -117,14 +113,33 @@ function App() {
 
 
   const selectCard = (id) => {
+    let reset = false;
+
     // loop over the characters to find the character id
-    let updatedCharacters = characters.map(character => {
+    const updatedCharacters = characters.map(character => {
+      // If character id matches and character select it false
         if(character.id === id && character.selected === false) {
-          return {...character, select: true}
+          // Increase score and change selected on object to true
+          scoreHandler()
+          return {...character, selected: true}
+          // If character id equals to id and character selected is true
         } else if(character.id === id && character.selected === true) {
-          return resetAllSelectedToFalse()
-        }
+          // Set reset to true and change current character selected to false
+          reset = true
+          return {...character, selected: false}
+        } else return character
+      
       })
+
+      // If reset is true reset all selected to false and reset score
+      if(reset) {
+        resetAllSelectedToFalse()
+        resetCurrentScore()
+        // Else update characters
+      } else {
+        setCharacters(updatedCharacters)
+      }
+      
   }
 
   const resetAllSelectedToFalse = () => {
@@ -140,12 +155,25 @@ function App() {
     setCharacters(updatedCharacters)
   }
 
+  // Updates on component did render and when current score is changed to shuffle
+  useEffect(() => {
+    shuffle()
+    // If currenScore is higher than highestScore set highestScore equal to currentScore
+    if(currentScore > highestScore) {
+      setHighestScore(prevState => prevState = currentScore)
+    }
+
+    // If current score is 10 reset current score
+    if(currentScore === 10) {
+      resetCurrentScore();
+    }
+  }, [currentScore])
+
   return (
     <div className="App">
       <Header />
-      <Scorebar />
-      <button onClick={() => console.log(characters)}>Click Me</button>
-      <CardContainer characters={characters} shuffle={shuffle}/>
+      <Scorebar currentScore={currentScore} highestScore={highestScore}/>
+      <CardContainer characters={characters} selectCard={selectCard}/>
     </div>
   );
 }
