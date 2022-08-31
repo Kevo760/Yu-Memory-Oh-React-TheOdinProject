@@ -14,7 +14,6 @@ import yami from './images/yami.png';
 import yusei from './images/yusei.png';
 import zane from './images/zane.png';
 import CardContainer from './components/CardContainer';
-import Background from './components/Background';
 
 
 function App() {
@@ -175,7 +174,7 @@ function App() {
       <Header />
       <Scorebar currentScore={currentScore} highestScore={highestScore}/>
       <CardContainer characters={characters} selectCard={selectCard}/>
-      <Background />
+      {/* <Background /> */}
     </div>
   );
 }
