@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/TheLegend760/Yu-Memory-Oh-React-TheOdinProject]
-- Live Site URL: [https://thelegend760.github.io/Yu-Memory-Oh-React-TheOdinProject/]
+- Solution URL: [https://github.com/Kevo760/Yu-Memory-Oh-React-TheOdinProject]
+- Live Site URL: [https://Kevo760.github.io/Yu-Memory-Oh-React-TheOdinProject/]
 
 ## My process
 
